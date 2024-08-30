@@ -41,3 +41,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Custom ignores
+firebase.json
+firebase_options.dart
+android/app/google-services.json
+lib/credentials/
