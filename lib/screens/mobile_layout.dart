@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/constants/colors.dart';
+import 'package:whatsapp/features/select_contacts/screen/select_contacts_screen.dart';
 import 'package:whatsapp/widgets/contact_list.dart';
 
-class MobileLayout extends StatelessWidget {
-  const MobileLayout({super.key});
+class MobileScreenLayout extends StatelessWidget {
+  static const routeName = "/mobile-home";
+  const MobileScreenLayout({super.key});
+
+  void navigateToSelectContactScreen(BuildContext context) {
+    Navigator.pushNamed(context, SelectContactScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +61,7 @@ class MobileLayout extends StatelessWidget {
           ),
         ]),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () => navigateToSelectContactScreen(context),
           child: const Icon(Icons.comment),
         ),
       ),

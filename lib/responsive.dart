@@ -11,7 +11,7 @@ class ResponsiveLayout extends StatelessWidget {
       if (constraints.maxWidth > 600) {
         return const DesktopLayout();
       } else {
-        return const MobileLayout();
+        return const MobileScreenLayout();
       }
     });
   }

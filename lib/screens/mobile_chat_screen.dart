@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/core/common/widgets/custom_width.dart';
 import 'package:whatsapp/core/constants/colors.dart';
 import 'package:whatsapp/widgets/web_chat_list.dart';
 
 class MobileChatScreen extends StatelessWidget {
+  static const String routeName = "/mobile-chat";
+
   const MobileChatScreen({super.key});
 
   @override
@@ -45,27 +48,38 @@ class MobileChatScreen extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.emoji_emotions_outlined),
-                      suffixIcon: const Padding(
-                        padding: EdgeInsets.only(right: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Icon(Icons.camera_alt),
-                            Icon(Icons.attach_file),
-                          ],
+                  child: SizedBox(
+                    height: 44,
+                    child: TextField(
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      maxLines: 3,
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.emoji_emotions_outlined),
+                        suffix: SizedBox(
+                          width: 96,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Icon(Icons.attach_file),
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Icon(Icons.camera_alt),
+                              ),
+                            ],
+                          ),
                         ),
+                        filled: true,
+                        fillColor: AppColor.searchBarColor,
+                        border: _inputBorder(),
+                        focusedBorder: _inputBorder(),
                       ),
-                      filled: true,
-                      fillColor: AppColor.searchBarColor,
-                      border: _inputBorder(),
-                      focusedBorder: _inputBorder(),
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const HorizontalSpacer(),
                 const CircleAvatar(
                   radius: 22,
                   backgroundColor: AppColor.tabColor,
