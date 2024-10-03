@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/core/common/widgets/custom_height.dart';
 import 'package:whatsapp/core/constants/colors.dart';
 import 'package:whatsapp/core/constants/photo_urls.dart';
-import 'package:whatsapp/core/utils/pick_image.dart';
+import 'package:whatsapp/core/utils/pick_image_video.dart';
 import 'package:whatsapp/features/auth/controller/auth_controller.dart';
 
 class UserInformationScreen extends ConsumerStatefulWidget {
@@ -33,7 +33,6 @@ class _UserInformationScreenState extends ConsumerState<UserInformationScreen> {
           context: context,
           name: nameController.text.trim(),
           profilePic: profileImage,
-         
         );
   }
 

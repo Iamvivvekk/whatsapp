@@ -106,7 +106,6 @@ class AuthRepository {
               "profilePic/$uid",
               profilePic,
             );
-
       }
       final user = UserModel(
         name: name,
@@ -130,5 +129,19 @@ class AuthRepository {
         showSnackbar(context, e.toString());
       }
     }
+  }
+
+  Stream<UserModel> userDataById(String uid) {
+    return _fireStore.collection("users").doc(uid).snapshots().map((event) {
+      return UserModel.fromMap(event.data()!);
+    });
+  }
+
+  void setOnlineStatus(bool isOnline) async {
+    await _fireStore.collection("users").doc(_auth.currentUser!.uid).update(
+      {
+        "isOnline": isOnline,
+      },
+    );
   }
 }

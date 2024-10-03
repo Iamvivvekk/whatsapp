@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/constants/colors.dart';
-import 'package:whatsapp/widgets/contact_list.dart';
-import 'package:whatsapp/widgets/web_chat_list.dart';
+import 'package:whatsapp/features/chats/widgets/contact_list.dart';
+import 'package:whatsapp/features/chats/widgets/chat_list.dart';
 
 import '../widgets/web_chat_appbar.dart';
 import '../widgets/web_profile_bar.dart';
@@ -45,7 +45,10 @@ class DesktopLayout extends StatelessWidget {
               children: [
                 const ChatAppBar(),
                 const SizedBox(height: 21),
-                const Expanded(child: ChatList()),
+                const Expanded(
+                    child: ChatList(
+                  receiverUserId: "",
+                )),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.07,
                   padding: const EdgeInsets.all(10),

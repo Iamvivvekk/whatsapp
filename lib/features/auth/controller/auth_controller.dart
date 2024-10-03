@@ -13,7 +13,7 @@ final authControllerProvider = Provider<AuthController>((ref) {
 });
 
 final userDataAuthProvider = FutureProvider((ref) async {
- return ref.watch(authControllerProvider).getUserData();
+  return ref.watch(authControllerProvider).getUserData();
 });
 
 class AuthController {
@@ -52,5 +52,13 @@ class AuthController {
       profilePic: profilePic,
       ref: ref,
     );
+  }
+
+  Stream<UserModel> userDataById(String uid) {
+    return authRepository.userDataById(uid);
+  }
+
+  void setOnlineStatus(bool isOnline) {
+    authRepository.setOnlineStatus(isOnline);
   }
 }
